@@ -24,22 +24,67 @@ class SenhaCriada extends StatelessWidget {
     }
 
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("$name, aguarde o seu atendimento, sua senha é"),
-          Text(
-            number.toString(),
-          ),
-          TextButton(
-            onPressed: () {
-              deleteFromSupabase().then(
-                (value) => Navigator.pop(context),
-              );
-            },
-            child: const Text("Ja fui atendido"),
-          ),
-        ],
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(200),
+          child: Container(
+            margin: const EdgeInsets.all(30),
+            child: Center(
+              child: Image.network(
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Correios_%282014%29.svg/2560px-Correios_%282014%29.svg.png"),
+            ),
+          )),
+      body: Container(
+        margin: const EdgeInsets.all(30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "$name, aguarde o seu atendimento, sua senha é",
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              number.toString(),
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            TextButton(
+              style: const ButtonStyle(
+                padding: MaterialStatePropertyAll(
+                  EdgeInsets.all(10),
+                ),
+                backgroundColor: MaterialStatePropertyAll(
+                  Color(0xFF00416B),
+                ),
+              ),
+              onPressed: () {
+                deleteFromSupabase().then(
+                  (value) => Navigator.pop(context),
+                );
+              },
+              child: const Text(
+                "Ja fui atendido",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
