@@ -37,8 +37,9 @@ class SenhaCriada extends StatelessWidget {
         ),
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
         ),
         margin: const EdgeInsets.all(30),
         padding: const EdgeInsets.all(23),
