@@ -15,11 +15,12 @@ class SenhaCriada extends StatelessWidget {
   Widget build(BuildContext context) {
     final supabase = Supabase.instance.client;
 
-    deleteFromSupabase() async {
-      await supabase.from('senhas').delete().match(
-        {
-          'nome': name,
-        },
+    changeUsedToTrueSupabase(int senha) async {
+      await supabase.from('senhas').update(
+        {'used': true},
+      ).eq(
+        'senha',
+        senha,
       );
     }
 
@@ -71,7 +72,7 @@ class SenhaCriada extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                deleteFromSupabase().then(
+                changeUsedToTrueSupabase(number).then(
                   (value) => Navigator.pop(context),
                 );
               },
