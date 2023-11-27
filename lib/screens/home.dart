@@ -56,8 +56,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFD9D9D9),
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(200),
+          preferredSize: const Size.fromHeight(150),
           child: Container(
             margin: const EdgeInsets.all(30),
             child: Center(
@@ -66,10 +67,26 @@ class _HomeState extends State<Home> {
             ),
           )),
       body: Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+        ),
         margin: const EdgeInsets.all(30),
+        padding: const EdgeInsets.all(23),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              "Solicite sua senha para o atendimento!",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             TextField(
               controller: nomeCliente,
               decoration: const InputDecoration(

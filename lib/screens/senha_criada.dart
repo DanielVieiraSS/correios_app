@@ -25,20 +25,25 @@ class SenhaCriada extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: const Color(0xFFD9D9D9),
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(200),
-          child: Container(
-            margin: const EdgeInsets.all(30),
-            child: Center(
-              child: Image.network(
-                  "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Correios_%282014%29.svg/2560px-Correios_%282014%29.svg.png"),
-            ),
-          )),
+        preferredSize: const Size.fromHeight(150),
+        child: Container(
+          margin: const EdgeInsets.all(30),
+          child: Center(
+            child: Image.network(
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Correios_%282014%29.svg/2560px-Correios_%282014%29.svg.png"),
+          ),
+        ),
+      ),
       body: Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+        ),
         margin: const EdgeInsets.all(30),
+        padding: const EdgeInsets.all(23),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               "$name, aguarde o seu atendimento, sua senha é",
